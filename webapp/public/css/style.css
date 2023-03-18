@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 * {
     margin: 0;
@@ -8,14 +8,51 @@
     border: none;
     outline: none;
     scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
+
+.cursor{
+    z-index: 999;
+    position: fixed;
+    background: #00d9ff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 20px #26abe8,
+                0 0 60px #26b1e8,
+                0 0 100px #26a1e8;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
+  
+  @keyframes colors{
+    0%{
+      filter: hue-rotate(0deg);
+    }
+    100%{
+      filter: hue-rotate(360deg);
+    }
+  }
+  
+  .cursor:before{
+    content: '';
+    position: absolute;
+    background: #2696E8;
+    width: 50px;
+    height: 50px;
+    opacity: 0.2;
+    transform: translate(-30%, -30%);
+    border-radius: 50%;
+  }
+
+
 :root {
-    --bg-color: #1f242d;
-    --second-bg-color: #323946;
-    --text-color: #fff;
-    --main-color: #0ef;
+    --bg-color: #ffffff;
+    --second-bg-color: #f1f1f1;
+    --text-color: hsl(0, 0%, 11%);
+    --main-color: rgb(0, 195, 255);
 }
 
 html {
@@ -26,12 +63,14 @@ html {
 body {
     background: var(--bg-color);
     color: var(--text-color);
+    cursor: none;
 }
 
 section {
     min-height: 100vh;
     padding: 10rem 9% 2rem;
 }
+
 
 
 /* Navbar start  */
@@ -61,8 +100,10 @@ section {
 
 
 .navbar a {
-    font-size: 1.7rem;
+    font-size: 2rem;
+    font-weight: bold;
     color: var(--text-color);
+    transition-delay: 100ms;
     margin-left: 4rem;
 }
 
@@ -89,8 +130,11 @@ section {
 }
 
 .home-img img {
-    width: 35rem;
+    margin-left: 15rem;
+    width: 30rem;
     animation: floatImage 4s ease-in-out infinite;
+    align-items: center;
+
     /* border-radius: 50%; */
 }
 
@@ -126,21 +170,23 @@ span {
 }
 
 .home-content p {
-    font-size: 1.6rem;
+    padding: 30px 0;
+    max-width: 800px;
+    font-size: 1.9rem;
 }
 
 .social-media a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
     background: transparent;
     border: .2rem solid var(--main-color);
     border-radius: 50%;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--main-color);
-    margin: 3rem 1.5rem 3rem 0;
+    margin: 0.8rem 2.2rem 2rem 0;
     transition: 0.5 ease;
 }
 
@@ -154,16 +200,17 @@ span {
 
 .btn {
     display: inline-block;
-    padding: 1rem 2.8rem;
+    padding: 1.5rem 4rem;
     background: var(--main-color);
     border-radius: 4rem;
     box-shadow: 0 0 1rem var(--main-color);
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: var(--second-bg-color);
     letter-spacing: .1rem;
     font-weight: 600;
     transition: 0.5 ease;
 }
+
 
 .btn:hover {
     box-shadow: none;
@@ -216,7 +263,8 @@ span {
 
 .services-container .services-box {
     flex: 1 1 30rem;
-    background: var(--second-bg-color);
+    background: transparent;
+    backdrop-filter: blur(15px);
     padding: 3rem 2rem 4rem;
     border-radius: 2rem;
     text-align: center;

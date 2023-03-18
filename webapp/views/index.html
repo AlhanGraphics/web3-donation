@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio</title>
 
+  
   <!-- box icons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <!-- <script src="path/to/typed.js"></script> -->
@@ -15,41 +16,76 @@
 </head>
 
 <body>
+
+  <div class="cursor"></div>
+
+  <script type="text/javascript">
+  
+
+  const cursor = document.querySelector(".cursor");
+  var timeout;
+
+  //follow cursor on mousemove
+  document.addEventListener("mousemove", (e) => {
+
+    let x = e.clientX; //replace pageX for client
+    let y = e.clientY; // replace  pageY for clientY
+    cursor.style.top = y + "px";
+    cursor.style.left = x + "px";
+    cursor.style.display = "block";
+
+    //cursor effects when mouse stopped
+    function mouseStopped(){
+      cursor.style.display = "none";
+    }
+    clearTimeout(timeout);
+    timeout = setTimeout(mouseStopped, 1000);
+  });
+
+  //cursor effects when mouseout
+  document.addEventListener("mouseout", () => {
+    cursor.style.display = "none";
+  });
+  </script>
+
   <!-- header design  -->
   <header class="header">
-    <a href="#" class="logo">Portfolio</a>
+    <a href="#" class="logo">Total Donation:</a>
 
     <i class="bx bx-menu" id="menu_icon"></i>
 
     <nav class="navbar">
       <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Donate</a>
+      <a href="#portfolio">FAQ</a>
     </nav>
   </header>
 
+  
   <!-- Home Section Desgin  -->
   <section class="home" id="home">
     <div class="home-content">
-      <h3>Hello, It's Me</h3>
-      <h1>Youngstr</h1>
-      <h3>And I'm a <span class="multiple-text"></span></h3>
+      <h1> <span style="color: black; font-weight: 700;">Zero</span> knowledge, <span style="color: black; font-weight: 700;">maximum</span> impact.</h1>
+
+
+      
+        <h1><span style="font-family: Montserrat; font-weight: 1000;">ZKDonation</span> is <span class="multiple-text" style="font-family: Montserrat; font-weight: 400;"></span></h1>
+
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        Voluptatibus, odio. Numquam laboriosam, ullam molestiae labore
-        deserunt dignissimos culpa eius perspiciatis odio amet! Magnam maiores
-        consequatur veritatis fugit illum maxime assumenda!
+         ZKDonation is a revolutionary zero knowledge proof based donation application designed to enhance the security and privacy of charitable contributions.
+         With this application, donors can make donations without revealing any personal or financial information, thus reducing the risk of identity theft and fraud.
       </p>
       <div class="social-media">
-        <a href="#"><i class='bx bxl-facebook'></i></a>
-        <a href="#"><i class='bx bxl-linkedin'></i></i></a>
-        <a href="#"><i class='bx bxl-github'></i></a>
-        <a href="#"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-telegram'></i></a>
+        <a href="#"><i class='bx bxl-github'></i></i></a>
+        <a href="#"><i class='bx bxl-twitter'></i></a>
       </div>
-      <a href="#" class="btn">Download CV</a>
+      <a href="#" class="btn">DONATE</a>
     </div>
+
+
+
 
     <div class="home-img">
       <img src="./images/home.jpeg" alt="">
@@ -63,7 +99,7 @@
     </div>
     <div class="about-content">
       <h2 class="heading">About <span>Me</span></h2>
-      <h3>Flutter Developer !</h3>
+      <h3>ZK Donation !</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos laudantium quae quis voluptates eum
         dolorum veniam quaerat iste, eligendi eius accusamus fuga id itaque nihil perspiciatis iure? Facilis,
         quidem sed?</p>
@@ -220,3 +256,4 @@
 </body>
 
 </html>
+

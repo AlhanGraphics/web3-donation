@@ -54,9 +54,9 @@ ScrollReveal().reveal('.home-content p , .about-content ',{ origin: 'right'});
 
 // ================== typed js ==================
 const typed = new Typed('.multiple-text', {
-    strings : ['Flutter Developer','Android Developer', 'UI/UX Designer','Sofware Engineer'],
-    typeSpeed: 100,
-    backSpeed: 100,
+    strings : ['Anonymous.','Secure.', 'Private.'],
+    typeSpeed: 90,
+    backSpeed: 90,
     backDelay: 1000,
     loop: true,
  });
