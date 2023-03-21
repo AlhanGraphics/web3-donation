@@ -98,18 +98,22 @@
   <section class="about" id="about">
     <div class="about-img">
 
-      <iframe width="600" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY" style="padding-right:100px">
-      </iframe>
+      <div style="border-radius: 3.5rem; overflow: hidden; box-shadow: 0 0 2rem #cfcfcf;">
+        <iframe width="768" height="432" src="https://www.youtube.com/embed/krSvebhauWA">
+        </iframe>
+      </div>
+
+
     </div>
-    <div class="about-content">
+    <div class="about-content" style="padding: 10rem 7rem 6%;">
       <h2 class="heading">About <span>Us</span></h2>
-      <p>We are the team behind ZKDonate, a revolutionary donation application designed to provide a more secure and
+      <p style="font-size: large; line-height: 3rem;">We are the team behind ZKDonate, a revolutionary donation application designed to provide a more secure and
         private way for individuals to make charitable contributions. Our goal is to leverage the power of zero
         knowledge proofs to ensure that donors can give to their favorite causes without the fear of exposing sensitive
         information.
         <br>
         </br>
-        Our team is made up of who share a common
+        Our team is made up of those who share a common
         vision of making the world a better place through technology. We believe that everyone should have the
         opportunity to give back to their community and support causes they care about, without worrying about the risks
         of identity theft or fraud.
@@ -133,7 +137,7 @@
         <p>The Unicorn Foundation is a charitable organization dedicated to supporting research into the mythical
           creatures known as unicorns. The foundation's mission is to uncover the secrets of these magical creatures and
           promote their conservation and protection.</p>
-        <a href="#" class="btn">Donate</a>
+        
       </div>
 
       <div class="services-box">
@@ -142,7 +146,7 @@
         <p>The Time Traveler's Foundation is a nonprofit organization that aims to fund research and development of time
           travel technology. The foundation's ultimate goal is to enable people to travel through time and witness
           historical events firsthand, with the hope of promoting a better understanding of our past and future.</p>
-        <a href="#" class="btn">Donate</a>
+        
       </div>
 
       <div class="services-box">
@@ -151,15 +155,80 @@
         <p>The Ninja Foundation is a charity that supports the training and education of aspiring ninjas around the
           world. The foundation's mission is to preserve the ancient art of ninjutsu and promote the values of
           discipline, honor, and respect that are central to the ninja way of life.</p>
-        <a href="#" class="btn">Donate</a>
       </div>
-
-
+      <div class="container">
+        <button class="button" id="connectButton">
+          Connect wallet
+  
+          <span id="loading">
+           <span>&bull;</span><span>&bull;</span><span>&bull;</span> 
+          </span>
+        </button>
+  
+        <div id="walletID">Your wallet is not connected yet.</div>
+  
+       <div id="mobileDeviceWarning">
+          If you are on a mobile phone, please use MetaMask 
+          application's browser to connect.
+       </div>
+   </div>
+  
+  <div class="alert" id="installAlert">
+    Please refresh your browser after installing the Metamask plugin
+  
+    <button class="button" id="reloadButton">Reload page</button>
+  </div>
 
     </div>
   </section>
 
+<section class="portfolio" id="portfolio">
+  <h2 style="margin: 20px auto 80px;
+    font-size: 38px;
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 1.5;">Frequently Asked Questions</h2>
 
+<div style="visibility: hidden; position: absolute; width: 0px; height: 0px;">
+  <svg xmlns="http://www.w3.org/2000/svg">
+    <symbol viewBox="0 0 24 24" id="expand-more">
+      <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/><path d="M0 0h24v24H0z" fill="none"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="close">
+      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/><path d="M0 0h24v24H0z" fill="none"/>
+    </symbol>
+  </svg>
+</div>
+
+<details open>
+  <summary>
+    Does this product have what I need?
+    <svg class="control-icon control-icon-expand" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#expand-more" /></svg>
+    <svg class="control-icon control-icon-close" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" /></svg>
+  </summary>
+  <p style="margin-top: 20px;">Totally. Totally does.</p>
+</details>
+
+<details>
+
+  <summary>
+    Can I use it all the time?
+    <svg class="control-icon control-icon-expand" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#expand-more" /></svg>
+    <svg class="control-icon control-icon-close" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" /></svg>
+  </summary>
+  <p style="margin-top: 20px;">Of course you can, we won't stop you.</p>
+</details>
+
+<details>
+  <summary>
+    Are there any restrictions?    
+    <svg class="control-icon control-icon-expand" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#expand-more" /></svg>
+    <svg class="control-icon control-icon-close" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" /></svg>
+  </summary>
+  <p style="margin-top: 20px;">Only your imagination my friend. Go forth!</p>
+</details>
+</section>
   <!-- Portfolio Section Design  -->
   <!--  
   <section class="portfolio" id="portfolio">

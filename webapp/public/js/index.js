@@ -60,3 +60,51 @@ const typed = new Typed('.multiple-text', {
   backDelay: 1000,
   loop: true,
 });
+
+
+// ================== METAMASK ===========================
+
+const connectButton = document.getElementById("connectButton");
+const walletID = document.getElementById("walletID");
+const reloadButton = document.getElementById("reloadButton");
+const installAlert = document.getElementById("installAlert");
+
+connectButton.addEventListener("click", () => {
+   // Start loader while connecting
+   connectButton.classList.add("loadingButton");
+
+   if (typeof window.ethereum !== "undefined") {
+      ethereum
+        .request({ method: "eth_requestAccounts" })
+        .then((accounts) => {
+           const account = accounts[0]
+
+           walletID.innerHTML = `Wallet connected: ${account}`;
+
+           // Stop loader when connected
+           connectButton.classList.remove("loadingButton");
+      }).catch((error) => {
+        // Handle error
+        console.log(error, error.code);
+
+        // Stop loader if error occured
+        // For example, when user cancelled request 
+        // and closed plugin
+        connectButton.classList.remove("loadingButton");
+
+        // 4001 - The request was rejected by the user
+        // -32602 - The parameters were invalid
+        // -32603- Internal error
+      });
+   } else {
+      window.open("https://metamask.io/download/", "_blank");
+
+      // Show 'Reload page' warning to user
+      installAlert.classList.add("show");
+   }
+})
+
+// Reload the page on reload button click
+reloadButton.addEventListener("click", () => {
+  window.location.reload();
+});

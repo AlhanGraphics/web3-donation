@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 
+
+
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +14,215 @@
   scroll-behavior: smooth;
   font-family: 'Montserrat', sans-serif;
 }
+
+
+  
+  details {
+    width: 75%;
+    min-height: 5px;
+    max-width: 700px;
+    padding: 45px 70px 45px 45px;
+    margin: 0 auto;
+    position: relative;
+    font-size: 22px;
+    border: 1.5px solid rgba(0,0,0,.1);
+    border-radius: 15px;
+    transition: all 0.5s;
+  }
+  
+  details + details {
+    margin-top: 50px;
+  }
+  
+  details[open] {
+    min-height: 50px;
+    background-color: #f6f7f8;
+    box-shadow: 2px 2px 20px #0000001e;
+  }
+  
+  details p {
+    color: #96999d;
+    font-weight: 300;
+  }
+  
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  summary:focus {
+    outline: none;
+    
+  }
+  
+  summary:focus::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+  }
+  
+  summary::-webkit-details-marker {
+    display: none
+  }
+  
+  .control-icon {
+    fill: var(--main-color);
+    transition: .3s ease;
+    pointer-events: none;
+  }
+  
+  .control-icon-close {
+    display: none;
+  }
+  
+  details[open] .control-icon-close {
+    display: initial;
+    transition: 0.5s ease;
+  }
+  
+  details[open] .control-icon-expand {
+    display: none;
+  }
+  
+
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20vh;
+}
+
+.button {
+    position: relative;
+    border: 0.2rem solid #0097ee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    outline: none;
+    box-shadow: 0 1px 8px 0 #9292923a;
+    background: #ffffff;
+    color: #000;
+    border-radius: 100px;
+    padding: 16px 64px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: box-shadow 0.5s ease;
+
+}
+
+.button:hover {
+    box-shadow: 0 0 12px 0 #0097ee70;
+}
+
+
+#connectButton {
+    margin-bottom: 16px;
+    color: rgb(0, 151, 238);
+    color: linear-gradient(90deg, hsl(202, 100%, 47%) 0%, rgba(0, 154, 237, 1) 50%, rgba(0, 191, 255, 1) 100%);
+
+}
+
+#walletID span{
+    max-width: 90%;
+    margin: 0 auto;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#mobileDeviceWarning {
+    display: none;
+    margin-top: 24px;
+    color: rgb(247, 47, 47);
+}
+
+#mobileDeviceWarning.show {
+    display: block;
+}
+
+.alert {
+    z-index: 10;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
+}
+
+.alert.show {
+    display: flex;
+}
+
+.alert .button {
+    margin-top: 24px;
+}
+
+/* Loading dots styles */
+@keyframes opacity {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.loadingButton {
+    pointer-events: none;
+}
+
+.loadingButton #loading {
+    display: flex;
+}
+
+#loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 99px;
+}
+
+#loading span:not(:last-child) {
+    margin-right: 5px;
+}
+
+#loading span {
+    animation-name: opacity;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+#loading span:nth-child(2) {
+    animation-delay: 100ms;
+    animation-delay: 100ms;
+}
+
+#loading span:nth-child(3) {
+    animation-delay: 300ms;
+    animation-delay: 300ms;
+}
+
 
 
 .cursor {
@@ -56,7 +267,7 @@
   --bg-color: #ffffff;
   --second-bg-color: #f1f1f1;
   --text-color: hsl(0, 0%, 11%);
-  --main-color: rgb(7, 156, 255);
+  --main-color: #089cff;
   ;
 }
 
@@ -72,16 +283,17 @@ html {
 
 body {
 
-  background: linear-gradient(315deg, #ffffff, #ffffff, #e1e1e1, #ffffff, #ffffff);
-  background-size: 1000% 1000%;
+    font-family: "IBM Plex Sans", sans-serif;
+    background: linear-gradient(315deg, #ffffff, #ffffff, #e1e1e1, #ffffff, #ffffff);
+    background-size: 1000% 1000%;
 
-  -webkit-animation: AnimationName 19s ease infinite;
-  -moz-animation: AnimationName 19s ease infinite;
-  -o-animation: AnimationName 19s ease infinite;
-  animation: AnimationName 19s ease infinite;
+    -webkit-animation: AnimationName 19s ease infinite;
+    -moz-animation: AnimationName 19s ease infinite;
+    -o-animation: AnimationName 19s ease infinite;
+    animation: AnimationName 19s ease infinite;
 
-  color: var(--text-color);
-  cursor: none;
+    color: var(--text-color);
+    cursor: none;
 }
 
 
@@ -211,7 +423,7 @@ section {
 }
 
 .home-img img {
-  width: 60rem;
+  width: 80rem;
   padding: 10rem 2rem 6%;
   animation: floatImage 4s ease-in-out infinite;
   align-items: center;
@@ -282,6 +494,8 @@ span {
 
 }
 
+
+
 .social-media a:hover {
   background: var(--bg-color);
   color: var(--main-color);
@@ -324,12 +538,11 @@ span {
 
 }
 
-.about-img img {
-
-  width: 30vw;
-
-  border-radius: 10%;
+.about-img embed { 
+    width: 35vw;
+  
 }
+
 
 .heading {
   text-align: center;
@@ -372,7 +585,7 @@ span {
   text-align: center;
   transition: .5 ease;
 
-  border: 0.3rem solid transparent;
+  border: 0.2rem solid #99999938;
   transition: box-shadow 0.5s ease;
 }
 
@@ -475,6 +688,12 @@ span {
   font-size: 2rem;
   color: var(--secon-bg-color);
 }
+
+
+
+
+
+
 
 .contact h2 {
   margin-bottom: 3rem;
@@ -642,7 +861,6 @@ span {
   }
 
   .about img {
-    width: 70vw;
     margin-top: 4rem;
 
   }
