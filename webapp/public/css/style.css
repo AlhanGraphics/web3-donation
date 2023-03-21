@@ -386,7 +386,6 @@ section {
   color: var(--text-color);
   font-weight: bolder;
   cursor: default;
-  padding-right: 10rem;
 }
 
 
@@ -395,7 +394,7 @@ section {
   font-size: 2rem;
   font-weight: bold;
   color: var(--text-color);
-  transition-delay: 100ms;
+  transition-delay: 10ms;
   margin-left: 4rem;
 }
 
@@ -419,11 +418,11 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+
 }
 
 .home-img img {
-  width: 60rem;
+  width: 100%;
   animation: floatImage 4s ease-in-out infinite;
   align-items: center;
 
