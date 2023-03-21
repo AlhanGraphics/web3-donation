@@ -262,7 +262,7 @@
   border-radius: 50%;
 }
 
-
+/* ==================================*/
 :root {
   --bg-color: #ffffff;
   --second-bg-color: #f1f1f1;
@@ -416,15 +416,15 @@ section {
 
 /* Home Start  */
 .home {
+  justify-content: center;
   display: flex;
   align-items: center;
-  padding-left: auto;
-  padding-right: auto;
+  padding: 20rem 0 0 30rem;
 }
 
 .home-img img {
-  width: 80rem;
-  padding: 10rem 2rem 6%;
+  width: 100rem;
+  padding:0 20rem 0 0;
   animation: floatImage 4s ease-in-out infinite;
   align-items: center;
 
