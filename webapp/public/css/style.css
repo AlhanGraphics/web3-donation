@@ -422,7 +422,7 @@ section {
 }
 
 .home-img img {
-  width: 90rem;
+  width: 60rem;
   animation: floatImage 4s ease-in-out infinite;
   align-items: center;
 
