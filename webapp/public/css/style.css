@@ -419,12 +419,10 @@ section {
   justify-content: center;
   display: flex;
   align-items: center;
-  padding: 20rem 0 0 30rem;
 }
 
 .home-img img {
-  width: 100rem;
-  padding:0 20rem 0 0;
+  width: 90rem;
   animation: floatImage 4s ease-in-out infinite;
   align-items: center;
 
