@@ -5,9 +5,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>ZKDonate</title>
 
-  
+
   <!-- box icons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <!-- <script src="path/to/typed.js"></script> -->
@@ -20,32 +20,32 @@
   <div class="cursor"></div>
 
   <script type="text/javascript">
-  
 
-  const cursor = document.querySelector(".cursor");
-  var timeout;
 
-  //follow cursor on mousemove
-  document.addEventListener("mousemove", (e) => {
+    const cursor = document.querySelector(".cursor");
+    var timeout;
 
-    let x = e.clientX; //replace pageX for client
-    let y = e.clientY; // replace  pageY for clientY
-    cursor.style.top = y + "px";
-    cursor.style.left = x + "px";
-    cursor.style.display = "block";
+    //follow cursor on mousemove
+    document.addEventListener("mousemove", (e) => {
 
-    //cursor effects when mouse stopped
-    function mouseStopped(){
+      let x = e.clientX; //replace pageX for client
+      let y = e.clientY; // replace  pageY for clientY
+      cursor.style.top = y + "px";
+      cursor.style.left = x + "px";
+      cursor.style.display = "block";
+
+      //cursor effects when mouse stopped
+      function mouseStopped() {
+        cursor.style.display = "none";
+      }
+      clearTimeout(timeout);
+      timeout = setTimeout(mouseStopped, 1000);
+    });
+
+    //cursor effects when mouseout
+    document.addEventListener("mouseout", () => {
       cursor.style.display = "none";
-    }
-    clearTimeout(timeout);
-    timeout = setTimeout(mouseStopped, 1000);
-  });
-
-  //cursor effects when mouseout
-  document.addEventListener("mouseout", () => {
-    cursor.style.display = "none";
-  });
+    });
   </script>
 
   <!-- header design  -->
@@ -55,25 +55,29 @@
     <i class="bx bx-menu" id="menu_icon"></i>
 
     <nav class="navbar">
-      <a href="#home" class="active" >Home</a>
+      <a href="#home" class="active">Home</a>
       <a href="#about">About Us</a>
       <a href="#services">Donate</a>
       <a href="#portfolio">FAQ</a>
     </nav>
   </header>
 
-  
-  <!-- Home Section Desgin  -->
+
+  <!-- Home Section Design  -->
   <section class="home" id="home">
     <div class="home-content">
 
-      <h1 style="color: black; font-weight: 600;">Zero <span style="font-weight: 500; color: black;">knowledge,</span> maximum <span style="font-weight: 500; color: black;">impact.</span> </h1> 
+      <h1 style="color: black; font-weight: 600;">Zero <span style="font-weight: 500; color: black;">knowledge,</span>
+        maximum <span style="font-weight: 500; color: black;">impact.</span> </h1>
 
-        <h1 style="font-weight: 500;"><span style="font-family: Montserrat; font-weight: 600;" >ZKDonation</span> is <span class="multiple-text" style="font-family: Montserrat; font-weight: 400;"></span></h1>
+      <h1 style="font-weight: 500;"><span style="font-family: Montserrat; font-weight: 600;">ZKDonate</span> is <span
+          class="multiple-text" style="font-family: Montserrat; font-weight: 400;"></span></h1>
 
       <p>
-         ZKDonation is a revolutionary zero knowledge proof based donation application designed to enhance the security and privacy of charitable contributions.
-         With this application, donors can make donations without revealing any personal or financial information, thus reducing the risk of identity theft and fraud.
+        ZKDonate is a zero knowledge proof based donation application designed to enhance the security
+        and privacy of charitable contributions.
+        With this application, donors can make donations without revealing any personal or financial information, thus
+        reducing the risk of identity theft and fraud.
       </p>
       <div class="social-media">
         <a href="#"><i class='bx bxl-telegram'></i></a>
@@ -93,48 +97,61 @@
   <!-- About Section  -->
   <section class="about" id="about">
     <div class="about-img">
-      <img src="./images/about.jpeg" alt="">
+
+      <iframe width="600" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY" style="padding-right:100px">
+      </iframe>
     </div>
     <div class="about-content">
       <h2 class="heading">About <span>Us</span></h2>
-      <h3 style="color: var(--main-color)">ZK Donation</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos laudantium quae quis voluptates eum
-        dolorum veniam quaerat iste, eligendi eius accusamus fuga id itaque nihil perspiciatis iure? Facilis,
-        quidem sed?</p>
-      <a href="#" class="btn"> Read More</a>
+      <p>We are the team behind ZKDonate, a revolutionary donation application designed to provide a more secure and
+        private way for individuals to make charitable contributions. Our goal is to leverage the power of zero
+        knowledge proofs to ensure that donors can give to their favorite causes without the fear of exposing sensitive
+        information.
+        <br>
+        </br>
+        Our team is made up of who share a common
+        vision of making the world a better place through technology. We believe that everyone should have the
+        opportunity to give back to their community and support causes they care about, without worrying about the risks
+        of identity theft or fraud.
+        <br>
+        </br>
+        We are excited to be participating in the ETHTokyo Hackathon, and we look forward to showcasing our innovative
+        solution to the judges and fellow participants. With ZKDonate, we hope to inspire others to explore the
+        possibilities of zero knowledge proofs and to join us in creating a safer, more secure world for everyone.
+      </p>
     </div>
   </section>
 
-  <!-- Service Section Desgin  -->
+  <!-- Service Section Design  -->
   <section class="services" id="services">
-    <h2 class="heading">Our <span>Services</span></h2>
+    <h2 class="heading">Donate</h2>
 
     <div class="services-container">
       <div class="services-box">
         <i class='bx bx-code-alt'></i>
-        <h3>Web Development</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error quisquam, distinctio laudantium
-          molestiae rerum quis facere commodi enim amet. Molestias corporis quas nam praesentium nemo a saepe
-          suscipit, voluptatibus optio.</p>
-        <a href="#" class="btn">Read More</a>
+        <h3>The Unicorn Foundation</h3>
+        <p>The Unicorn Foundation is a charitable organization dedicated to supporting research into the mythical
+          creatures known as unicorns. The foundation's mission is to uncover the secrets of these magical creatures and
+          promote their conservation and protection.</p>
+        <a href="#" class="btn">Donate</a>
       </div>
 
       <div class="services-box">
         <i class='bx bx-paint'></i>
-        <h3>Graphic Desgining</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error quisquam, distinctio laudantium
-          molestiae rerum quis facere commodi enim amet. Molestias corporis quas nam praesentium nemo a saepe
-          suscipit, voluptatibus optio.</p>
-        <a href="#" class="btn">Read More</a>
+        <h3>The Time Traveler's Foundation</h3>
+        <p>The Time Traveler's Foundation is a nonprofit organization that aims to fund research and development of time
+          travel technology. The foundation's ultimate goal is to enable people to travel through time and witness
+          historical events firsthand, with the hope of promoting a better understanding of our past and future.</p>
+        <a href="#" class="btn">Donate</a>
       </div>
 
       <div class="services-box">
         <i class='bx bx-bar-chart-alt'></i>
-        <h3>Digital Marketing</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error quisquam, distinctio laudantium
-          molestiae rerum quis facere commodi enim amet. Molestias corporis quas nam praesentium nemo a saepe
-          suscipit, voluptatibus optio.</p>
-        <a href="#" class="btn">Read More</a>
+        <h3>The Ninja Foundation</h3>
+        <p>The Ninja Foundation is a charity that supports the training and education of aspiring ninjas around the
+          world. The foundation's mission is to preserve the ancient art of ninjutsu and promote the values of
+          discipline, honor, and respect that are central to the ninja way of life.</p>
+        <a href="#" class="btn">Donate</a>
       </div>
 
 
@@ -143,15 +160,17 @@
   </section>
 
 
-  <!-- Portfolio Section desgin  -->
+  <!-- Portfolio Section Design  -->
+  <!--  
   <section class="portfolio" id="portfolio">
     <h2 class="heading">Latest <span>Project</span></h2>
     <div class="portfolio-contianer">
       <div class="portfolio-box">
         <img src="./images/portfolio1.jpg" alt="">
         <div class="portfolio-layer">
-          <h4 style="color:var(--bg-color);">Web Desgin</h4>
-          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima sapiente asperiores
+          <h4 style="color:var(--bg-color);">Web Design</h4>
+          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima
+            sapiente asperiores
             nam.</p>
           <a href="#"><i class='bx bx-link-external'></i></a>
         </div>
@@ -160,8 +179,9 @@
       <div class="portfolio-box">
         <img src="./images/portfolio2.jpg" alt="">
         <div class="portfolio-layer">
-          <h4 style="color:var(--bg-color);">Web Desgin</h4>
-          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima sapiente asperiores
+          <h4 style="color:var(--bg-color);">Web Design</h4>
+          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima
+            sapiente asperiores
             nam.</p>
           <a href="#"><i class='bx bx-link-external'></i></a>
         </div>
@@ -170,8 +190,9 @@
       <div class="portfolio-box">
         <img src="./images/portfolio3.jpg" alt="">
         <div class="portfolio-layer">
-          <h4 style="color:var(--bg-color);" >Web Desgin</h4>
-          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima sapiente asperiores
+          <h4 style="color:var(--bg-color);">Web Design</h4>
+          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima
+            sapiente asperiores
             nam.</p>
           <a href="#"><i class='bx bx-link-external'></i></a>
         </div>
@@ -180,8 +201,9 @@
       <div class="portfolio-box">
         <img src="./images/portfolio4.jpg" alt="">
         <div class="portfolio-layer">
-          <h4 style="color:var(--bg-color);">Web Desgin</h4>
-          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima sapiente asperiores
+          <h4 style="color:var(--bg-color);">Web Design</h4>
+          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima
+            sapiente asperiores
             nam, placeat sit inventore sint dolor dignissimos adipisci totam tempore labore voluptas esse
             dolorum officia. Blanditiis, ab laudantium.</p>
           <a href="#"><i class='bx bx-link-external'></i></a>
@@ -191,8 +213,9 @@
       <div class="portfolio-box">
         <img src="./images/portfolio5.jpg" alt="">
         <div class="portfolio-layer">
-          <h4 style="color:var(--bg-color);">Web Desgin</h4>
-          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima sapiente asperiores
+          <h4 style="color:var(--bg-color);">Web Design</h4>
+          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima
+            sapiente asperiores
             nam, placeat sit inventore sint dolor dignissimos adipisci totam tempore labore voluptas esse
             dolorum officia. Blanditiis, ab laudantium.</p>
           <a href="#"><i class='bx bx-link-external'></i></a>
@@ -202,8 +225,9 @@
       <div class="portfolio-box">
         <img src="./images/portfolio6.jpg" alt="">
         <div class="portfolio-layer">
-          <h4 style="color:var(--bg-color);" >Web Desgin</h4>
-          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima sapiente asperiores
+          <h4 style="color:var(--bg-color);">Web Design</h4>
+          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima
+            sapiente asperiores
             nam, placeat sit inventore sint dolor dignissimos adipisci totam tempore labore voluptas esse
             dolorum officia. Blanditiis, ab laudantium.</p>
           <a href="#"><i class='bx bx-link-external'></i></a>
@@ -212,7 +236,10 @@
 
     </div>
   </section>
-  <!-- contact section design --> <!--
+  -->
+
+  <!-- contact section design -->
+  <!--
    <section class="contact" id="contact"> 
     <h2 class="heading">
       Contact <span>Me!</span>
@@ -234,8 +261,7 @@
   <-- footer section -->
   <footer class="footer">
     <div class="footer-text">
-      <p>Copyright &copy; 2023 <a href="http://www.Youngstr.online" style="color: antiquewhite;"><b>Youngstr</b></a> |
-        All rights reserved.</p>
+      <p>Made with ♥️ 14.04.23-16.04.23</p>
     </div>
     <div class="footer-iconTop">
       <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
@@ -255,4 +281,3 @@
 </body>
 
 </html>
-
