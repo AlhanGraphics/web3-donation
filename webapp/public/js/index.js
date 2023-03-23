@@ -78,11 +78,14 @@ connectButton.addEventListener("click", () => {
         .request({ method: "eth_requestAccounts" })
         .then((accounts) => {
            const account = accounts[0]
+           connectButton.remove();
 
            walletID.innerHTML = `Wallet connected: ${account}`;
 
            // Stop loader when connected
            connectButton.classList.remove("loadingButton");
+           
+
       }).catch((error) => {
         // Handle error
         console.log(error, error.code);
