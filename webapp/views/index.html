@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -12,7 +13,10 @@
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <!-- <script src="path/to/typed.js"></script> -->
   <!-- custom css -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+  <link rel='stylesheet2' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
   <link rel="stylesheet" href="./css/style.css" />
+  
 </head>
 
 <body>
@@ -59,6 +63,7 @@
       <a href="#about">About Us</a>
       <a href="#services">Donate</a>
       <a href="#portfolio">FAQ</a>
+      <a href="#payment" style="display: none;">Payment</a>
     </nav>
   </header>
 
@@ -84,7 +89,7 @@
         <a href="#"><i class='bx bxl-github'></i></i></a>
         <a href="#"><i class='bx bxl-twitter'></i></a>
       </div>
-      <a href="#" class="btn">DONATE</a>
+      <a href="http://localhost:8080/" class="btn">DONATE</a>
     </div>
 
 
@@ -128,6 +133,9 @@
   </section>
 
   <!-- Service Section Design  -->
+
+  
+  
   <section class="services" id="services">
     <h2 class="heading">Donate</h2>
 
@@ -161,7 +169,9 @@
 
       </div>
 
+   
 
+      
       <div class="container">
         <button class="button" id="connectButton">
           Connect wallet
@@ -346,9 +356,121 @@
       <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
       <input type="submit" value="Send Message" class="btn">
     </form>
-  </section> 
+  </section
   
   <-- footer section -->
+
+  <section class="payment" id="payment" style="display: none;">
+    <body>
+<body>
+
+<div class="content"  > 
+  <div class="content__inner">
+    <div class="container overflow-hidden">
+      <div class="multisteps-form">
+        <div class="row">
+          <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+            <div class="multisteps-form__progress">
+              <button class="multisteps-form__progress-btn js-active" type="button" title="User Info">User Info</button>
+              <button class="multisteps-form__progress-btn" type="button" title="Address">Address</button>
+              <button class="multisteps-form__progress-btn" type="button" title="Order Info">Order Info</button>
+              <button class="multisteps-form__progress-btn" type="button" title="Message">Message        </button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-8 m-auto">
+            <form class="multisteps-form__form">
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
+                <h1 style="margin-top: 5rem; margin-bottom: 5rem;">AMOUNT YOU WANT TO DONATE</h1>
+                <div class="multisteps-form__content">
+                  <div class="form-row mt-4">
+                    <div class="col-12 col-sm-6">
+                      <input class="multisteps-form__input form-control" type="number" placeholder="ETH AMOUNT"/>
+                    </div>
+                  </div>
+                  <div class="button-row d-flex mt-4">
+                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                <h1 style="margin-top: 5rem; margin-bottom: 5rem;">SELECT A FOUNDATION</h1>
+                <div class="multisteps-form__content">
+                  <div class="form-row mt-4">
+                    <div class="col-6 col-sm-3 mt-4 mt-sm-0">
+                      <select class="multisteps-form__select form-control">
+                        <option selected="selected">FOUNDATION</option>
+                        <option>Hybrid Tech Foundation</option>
+                        <option>Sustainable Agriculture Charity</option>
+                        <option>Equal Education Foundation</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="button-row d-flex mt-4">
+                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                <h3 class="multisteps-form__title">Check Other Foundations</h3>
+                <div class="multisteps-form__input form-control">
+                  <div class="row">
+                    <div class="col-12 col-md-6 mt-4">
+                      <div class="card shadow-sm">
+                        <div class="card-body">
+                          <h5 class="card-title">Item Title</h5>
+                          <p class="card-text">Small and nice item description</p><a class="btn btn-primary" href="#" title="Item Link">Item Link</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 mt-4">
+                      <div class="card shadow-sm">
+                        <div class="card-body">
+                          <h5 class="card-title">Complete The Payment</h5>
+                          <p class="card-text">Small and nice item description</p><a class="btn btn-primary" href="#" title="Item Link">Item Link</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="button-row d-flex mt-4 col-12">
+                      <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                      <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                <h3 class="multisteps-form__title">Additional Message</h3>
+                <div class="multisteps-form__content">
+                  <div class="form-row mt-4">
+                    <textarea class="multisteps-form__textarea form-control" placeholder="Additional Message and Questions"></textarea>
+                  </div>
+                  <div class="button-row d-flex mt-4">
+                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                    <button class="btn btn-success ml-auto" type="button" title="Send">Send</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script  src="function.js"></script>
+      
+      </body>
+  </section>
+
+
   <footer class="footer">
     <div class="footer-text">
       <p>Made with ♥️ 14.04.23-16.04.23</p>
@@ -368,6 +490,10 @@
 
   <!-- custom js -->
   <script src="./js/index.js"></script>
-</body>
 
+ 
+  
+</body>
+ 
 </html>
+
