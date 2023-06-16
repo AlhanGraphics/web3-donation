@@ -6,17 +6,15 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZKDonate</title>
+  <title>PROJECT NAME</title>
 
-
-  <!-- box icons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <!-- <script src="path/to/typed.js"></script> -->
-  <!-- custom css -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
   <link rel='stylesheet2' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
   <link rel="stylesheet" href="./css/style.css" />
-  
+
+
+
 </head>
 
 <body>
@@ -54,125 +52,31 @@
 
   <!-- header design  -->
   <header class="header">
-    <a href="#" class="logo">Total Donation:</a>
+    <a href="#" class="logo">PROJECT NAME</a>
 
     <i class="bx bx-menu" id="menu_icon"></i>
 
     <nav class="navbar">
       <a href="#home" class="active">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#services">Donate</a>
-      <a href="#portfolio">FAQ</a>
-      <a href="#payment" style="display: none;">Payment</a>
+      <a href="#donation" style="display: none;">Donation</a>
+      <a href="#wallet" id="wallet-nav" style="display: none;"></a>
     </nav>
   </header>
 
 
-  <!-- Home Section Design  -->
   <section class="home" id="home">
     <div class="home-content">
 
       <h1 style="color: black; font-weight: 600;">Zero <span style="font-weight: 500; color: black;">knowledge,</span>
         maximum <span style="font-weight: 500; color: black;">impact.</span> </h1>
 
-      <h1 style="font-weight: 500;"><span style="font-family: Montserrat; font-weight: 600;">ZKDonate</span> is <span
+      <h1 style="font-weight: 500;"><span style="font-family: Montserrat; font-weight: 600;">PROJECT NAME</span> is <span
           class="multiple-text" style="font-family: Montserrat; font-weight: 400;"></span></h1>
 
       <p>
-        ZKDonate is a zero knowledge proof based donation application designed to enhance the security
-        and privacy of charitable contributions.
-        With this application, donors can make donations without revealing any personal or financial information, thus
-        reducing the risk of identity theft and fraud.
+        DESCRIPTION
       </p>
-      <div class="social-media">
-        <a href="#"><i class='bx bxl-telegram'></i></a>
-        <a href="#"><i class='bx bxl-github'></i></i></a>
-        <a href="#"><i class='bx bxl-twitter'></i></a>
-      </div>
-      <a href="http://localhost:8080/" class="btn">DONATE</a>
-    </div>
-
-
-
-    <div class="home-img">
-      <img src="./images/person-donating.png" alt="">
-    </div>
-  </section>
-
-  <!-- About Section  -->
-  <section class="about" id="about">
-    <div class="about-img">
-
-      <div style="border-radius: 3.5rem; overflow: hidden; box-shadow: 0 0 2rem #cfcfcf;">
-        <iframe width="768" height="432" src="https://www.youtube.com/embed/krSvebhauWA">
-        </iframe>
-      </div>
-
-
-    </div>
-    <div class="about-content" style="padding: 10rem 7rem 6%;">
-      <h2 class="heading">About <span>Us</span></h2>
-      <p style="font-size: large; line-height: 3rem;">We are the team behind ZKDonate, a revolutionary donation
-        application designed to provide a more secure and
-        private way for individuals to make charitable contributions. Our goal is to leverage the power of zero
-        knowledge proofs to ensure that donors can give to their favorite causes without the fear of exposing sensitive
-        information.
-        <br>
-        </br>
-        Our team is made up of those who share a common
-        vision of making the world a better place through technology. We believe that everyone should have the
-        opportunity to give back to their community and support causes they care about, without worrying about the risks
-        of identity theft or fraud.
-        <br>
-        </br>
-        We are excited to be participating in the ETHTokyo Hackathon, and we look forward to showcasing our innovative
-        solution to the judges and fellow participants. With ZKDonate, we hope to inspire others to explore the
-        possibilities of zero knowledge proofs and to join us in creating a safer, more secure world for everyone.
-      </p>
-    </div>
-  </section>
-
-  <!-- Service Section Design  -->
-
-  
-  
-  <section class="services" id="services">
-    <h2 class="heading">Donate</h2>
-
-    <div class="services-container">
-      <div class="services-box">
-        <i class='bx bx-code-alt'></i>
-        <h3>Hybrid Tech Foundation</h3>
-        <p>Hybrid Tech Foundation is a non-profit organization committed to advancing hybrid technology for a
-          sustainable future. The main mission of this is to support the research, development, and implementation of
-          hybrid
-          technology across various industries, including transportation, energy, and agriculture.
-        </p>
-
-      </div>
-
-      <div class="services-box">
-        <i class='bx bx-bar-chart-alt'></i>
-        <h3>Sustainable Agriculture Charity</h3>
-        <p>Sustainable Agriculture Charity is an organization dedicated to promoting sustainable agricultural
-          practices and supporting farmers who implement these practices. Sustainable agriculture refers to a method of
-          farming that focuses on long-term environmental, social, and economic sustainability.</p>
-      </div>
-      <div class="services-box">
-        <i class='bx bx-paint'></i>
-        <h3>Equal Education Foundation</h3>
-        <p>Equal Education Foundation is a non-profit organization that is dedicated to promoting equal educational
-          opportunities
-          for all students, regardless of their background or socioeconomic status. The organization's mission is to
-          provide students with the resources and support they need to achieve their full potential and succeed in life.
-        </p>
-
-      </div>
-
-   
-
-      
-      <div class="container">
+      <div class="wallet-container">
         <button class="button" id="connectButton">
           Connect wallet
 
@@ -180,300 +84,143 @@
             <span>&bull;</span><span>&bull;</span><span>&bull;</span>
           </span>
         </button>
-
-        <div id="walletID">Your wallet is not connected yet.</div>
-
-        <div id="mobileDeviceWarning">
-          If you are on a mobile phone, please use MetaMask
-          application's browser to connect.
-        </div>
-      </div>
-
-      <div class="alert" id="installAlert">
-        Please refresh your browser after installing the Metamask plugin
-
-        <button class="button" id="reloadButton">Reload page</button>
       </div>
 
     </div>
-  </section>
-
-  <section class="portfolio" id="portfolio">
-    <h2 style="margin: 20px auto 80px;
-    font-size: 38px;
-    font-weight: 300;
-    text-align: center;
-    letter-spacing: 2px;
-    line-height: 1.5;">Frequently Asked Questions</h2>
-
-    <div style="visibility: hidden; position: absolute; width: 0px; height: 0px;">
-      <svg xmlns="http://www.w3.org/2000/svg">
-        <symbol viewBox="0 0 24 24" id="expand-more">
-          <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" />
-          <path d="M0 0h24v24H0z" fill="none" />
-        </symbol>
-        <symbol viewBox="0 0 24 24" id="close">
-          <path
-            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-          <path d="M0 0h24v24H0z" fill="none" />
-        </symbol>
-      </svg>
     </div>
 
-    <details open>
-      <summary>
-        Does this product have what I need?
-        <svg class="control-icon control-icon-expand" width="24" height="24" role="presentation">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#expand-more" />
-        </svg>
-        <svg class="control-icon control-icon-close" width="24" height="24" role="presentation">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" />
-        </svg>
-      </summary>
-      <p style="margin-top: 20px;">Totally. Totally does.</p>
-    </details>
 
-    <details>
 
-      <summary>
-        Can I use it all the time?
-        <svg class="control-icon control-icon-expand" width="24" height="24" role="presentation">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#expand-more" />
-        </svg>
-        <svg class="control-icon control-icon-close" width="24" height="24" role="presentation">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" />
-        </svg>
-      </summary>
-      <p style="margin-top: 20px;">Of course you can, we won't stop you.</p>
-    </details>
-
-    <details>
-      <summary>
-        Are there any restrictions?
-        <svg class="control-icon control-icon-expand" width="24" height="24" role="presentation">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#expand-more" />
-        </svg>
-        <svg class="control-icon control-icon-close" width="24" height="24" role="presentation">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" />
-        </svg>
-      </summary>
-      <p style="margin-top: 20px;">Only your imagination my friend. Go forth!</p>
-    </details>
-  </section>
-  <!-- Portfolio Section Design  -->
-  <!--  
-  <section class="portfolio" id="portfolio">
-    <h2 class="heading">Latest <span>Project</span></h2>
-    <div class="portfolio-contianer">
-      <div class="portfolio-box">
-        <img src="./images/portfolio1.jpg" alt="">
-        <div class="portfolio-layer">
-          <h4 style="color:var(--bg-color);">Web Design</h4>
-          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima
-            sapiente asperiores
-            nam.</p>
-          <a href="#"><i class='bx bx-link-external'></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-box">
-        <img src="./images/portfolio2.jpg" alt="">
-        <div class="portfolio-layer">
-          <h4 style="color:var(--bg-color);">Web Design</h4>
-          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima
-            sapiente asperiores
-            nam.</p>
-          <a href="#"><i class='bx bx-link-external'></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-box">
-        <img src="./images/portfolio3.jpg" alt="">
-        <div class="portfolio-layer">
-          <h4 style="color:var(--bg-color);">Web Design</h4>
-          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima
-            sapiente asperiores
-            nam.</p>
-          <a href="#"><i class='bx bx-link-external'></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-box">
-        <img src="./images/portfolio4.jpg" alt="">
-        <div class="portfolio-layer">
-          <h4 style="color:var(--bg-color);">Web Design</h4>
-          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima
-            sapiente asperiores
-            nam, placeat sit inventore sint dolor dignissimos adipisci totam tempore labore voluptas esse
-            dolorum officia. Blanditiis, ab laudantium.</p>
-          <a href="#"><i class='bx bx-link-external'></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-box">
-        <img src="./images/portfolio5.jpg" alt="">
-        <div class="portfolio-layer">
-          <h4 style="color:var(--bg-color);">Web Design</h4>
-          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima
-            sapiente asperiores
-            nam, placeat sit inventore sint dolor dignissimos adipisci totam tempore labore voluptas esse
-            dolorum officia. Blanditiis, ab laudantium.</p>
-          <a href="#"><i class='bx bx-link-external'></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-box">
-        <img src="./images/portfolio6.jpg" alt="">
-        <div class="portfolio-layer">
-          <h4 style="color:var(--bg-color);">Web Design</h4>
-          <p style="color:var(--bg-color);">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima
-            sapiente asperiores
-            nam, placeat sit inventore sint dolor dignissimos adipisci totam tempore labore voluptas esse
-            dolorum officia. Blanditiis, ab laudantium.</p>
-          <a href="#"><i class='bx bx-link-external'></i></a>
-        </div>
-      </div>
-
+    <div class="home-img">
+      <img src="./images/main.png" alt="">
     </div>
   </section>
-  -->
 
-  <!-- contact section design -->
-  <!--
-   <section class="contact" id="contact"> 
-    <h2 class="heading">
-      Contact <span>Me!</span>
-    </h2>
-    <form action="#">
-      <div class="input-box">
-        <input type="text" placeholder="Full Name">
-        <input type="email" placeholder="Email Address">
-      </div>
-      <div class="input-box">
-        <input type="number" placeholder="Mobile Number">
-        <input type="text" placeholder="Email Subject">
-      </div>
-      <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-      <input type="submit" value="Send Message" class="btn">
-    </form>
-  </section
-  
-  <-- footer section -->
+  <section class="donation" id="donation" style="display: none;">
 
-  <section class="payment" id="payment" style="display: none;">
     <body>
-<body>
+      <div id="donation" class="form-section">
+        <div class="content">
+          <div class="content__inner">
+            <div class="container overflow-hidden">
+              <div class="multisteps-form">
+                <div class="row">
+                  <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+                    <div class="multisteps-form__progress">
+                      <button class="multisteps-form__progress-btn js-active" id='scroll-here' type="button"
+                        title="User Info">User
+                        Info</button>
+                      <button class="multisteps-form__progress-btn" type="button" title="Address">Address</button>
+                      <button class="multisteps-form__progress-btn" type="button" title="Order Info">Order Info</button>
+                      <button class="multisteps-form__progress-btn" type="button" title="Message">Message </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-lg-8 m-auto">
+                    <form class="multisteps-form__form">
+                      <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active"
+                        data-animation="scaleIn">
+                        <h1 style="margin-top: 5rem; margin-bottom: 5rem;">Please enter the private key of the connected
+                          account
+                          that you want to donate and enter a password to access this account.</h1>
+                        <div class="multisteps-form__content">
+                          <div class="form-row mt-4">
+                            <div class="col-12 col-sm-6">
+                              <input id="pk-input" class="multisteps-form__input form-control" type="text"
+                                placeholder="0x..." />
+                              <input id="pass-input" class="multisteps-form__input form-control" type="text"
+                                placeholder="qwerty123" />
+                            </div>
+                          </div>
+                          <div class="button-row d-flex mt-4">
+                            <button id="pk-btn" class="btn btn-primary ml-auto js-btn-next" type="button"
+                              title="Next">Next</button>
+                          </div>
+                        </div>
+                      </div>
 
-<div class="content"  > 
-  <div class="content__inner">
-    <div class="container overflow-hidden">
-      <div class="multisteps-form">
-        <div class="row">
-          <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
-            <div class="multisteps-form__progress">
-              <button class="multisteps-form__progress-btn js-active" type="button" title="User Info">User Info</button>
-              <button class="multisteps-form__progress-btn" type="button" title="Address">Address</button>
-              <button class="multisteps-form__progress-btn" type="button" title="Order Info">Order Info</button>
-              <button class="multisteps-form__progress-btn" type="button" title="Message">Message        </button>
+                      <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                        <h1 style="margin-top: 5rem; margin-bottom: 5rem;">SELECT A FOUNDATION</h1>
+                        <div class="multisteps-form__content">
+                          <div class="form-row mt-4">
+                            <div class="col-6 col-sm-3 mt-4 mt-sm-0">
+                              <select class="multisteps-form__select form-control">
+                                <option selected="selected">FOUNDATION</option>
+                                <option>Hybrid Tech Foundation</option>
+                                <option>Sustainable Agriculture Charity</option>
+                                <option>Equal Education Foundation</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="button-row d-flex mt-4">
+                            <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                            <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                        <h3 class="multisteps-form__title">Check Other Foundations</h3>
+                        <div class="multisteps-form__input form-control">
+                          <div class="row">
+                            <div class="col-12 col-md-6 mt-4">
+                              <div class="card shadow-sm">
+                                <div class="card-body">
+                                  <h5 class="card-title">Item Title</h5>
+                                  <p class="card-text">Small and nice item description</p><a class="btn btn-primary"
+                                    href="#" title="Item Link">Item Link</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-6 mt-4">
+                              <div class="card shadow-sm">
+                                <div class="card-body">
+                                  <h5 class="card-title">Complete The Payment</h5>
+                                  <p class="card-text">Small and nice item description</p><a class="btn btn-primary"
+                                    href="#" title="Item Link">Item Link</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="button-row d-flex mt-4 col-12">
+                              <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                              <button class="btn btn-primary ml-auto js-btn-next" type="button"
+                                title="Next">Next</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                        <h3 class="multisteps-form__title">Additional Message</h3>
+                        <div class="multisteps-form__content">
+                          <div class="form-row mt-4">
+                            <textarea class="multisteps-form__textarea form-control"
+                              placeholder="Additional Message and Questions"></textarea>
+                          </div>
+                          <div class="button-row d-flex mt-4">
+                            <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                            <button class="btn btn-success ml-auto" type="button" title="Send">Send</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12 col-lg-8 m-auto">
-            <form class="multisteps-form__form">
-              <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
-                <h1 style="margin-top: 5rem; margin-bottom: 5rem;">AMOUNT YOU WANT TO DONATE</h1>
-                <div class="multisteps-form__content">
-                  <div class="form-row mt-4">
-                    <div class="col-12 col-sm-6">
-                      <input class="multisteps-form__input form-control" type="number" placeholder="ETH AMOUNT"/>
-                    </div>
-                  </div>
-                  <div class="button-row d-flex mt-4">
-                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                <h1 style="margin-top: 5rem; margin-bottom: 5rem;">SELECT A FOUNDATION</h1>
-                <div class="multisteps-form__content">
-                  <div class="form-row mt-4">
-                    <div class="col-6 col-sm-3 mt-4 mt-sm-0">
-                      <select class="multisteps-form__select form-control">
-                        <option selected="selected">FOUNDATION</option>
-                        <option>Hybrid Tech Foundation</option>
-                        <option>Sustainable Agriculture Charity</option>
-                        <option>Equal Education Foundation</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="button-row d-flex mt-4">
-                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                <h3 class="multisteps-form__title">Check Other Foundations</h3>
-                <div class="multisteps-form__input form-control">
-                  <div class="row">
-                    <div class="col-12 col-md-6 mt-4">
-                      <div class="card shadow-sm">
-                        <div class="card-body">
-                          <h5 class="card-title">Item Title</h5>
-                          <p class="card-text">Small and nice item description</p><a class="btn btn-primary" href="#" title="Item Link">Item Link</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6 mt-4">
-                      <div class="card shadow-sm">
-                        <div class="card-body">
-                          <h5 class="card-title">Complete The Payment</h5>
-                          <p class="card-text">Small and nice item description</p><a class="btn btn-primary" href="#" title="Item Link">Item Link</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="button-row d-flex mt-4 col-12">
-                      <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                      <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                <h3 class="multisteps-form__title">Additional Message</h3>
-                <div class="multisteps-form__content">
-                  <div class="form-row mt-4">
-                    <textarea class="multisteps-form__textarea form-control" placeholder="Additional Message and Questions"></textarea>
-                  </div>
-                  <div class="button-row d-flex mt-4">
-                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                    <button class="btn btn-success ml-auto" type="button" title="Send">Send</button>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<script  src="function.js"></script>
-      
-      </body>
+    </body>
   </section>
 
 
   <footer class="footer">
     <div class="footer-text">
-      <p>Made with ♥️ 14.04.23-16.04.23</p>
+      <p>made with love</p>
     </div>
     <div class="footer-iconTop">
       <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
@@ -487,13 +234,17 @@
   <!-- typed js -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-
+  <script charset="utf-8" src="https://cdn.ethers.io/scripts/ethers-v4.min.js" type="text/javascript"></script>
+  </script>
   <!-- custom js -->
   <script src="./js/index.js"></script>
+  <script src="./js/deneme.js" type="module"></script>
 
- 
-  
+
+
+
+
+
 </body>
- 
-</html>
 
+</html>

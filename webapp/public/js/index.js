@@ -3,7 +3,6 @@ let menuIcon = document.querySelector('#menu_icon');
 let navbar = document.querySelector('.navbar');
 
 menuIcon.onclick = () => {
-  // console.log('hi');
   menuIcon.classList.toggle('bx-x');
   navbar.classList.toggle('active');
 };
@@ -38,19 +37,6 @@ window.onscroll = () => {
 
 };
 
-// ================== scroll reveal ==================
-
-ScrollReveal({
-  // reset: true, // true -> animation every time
-  distance: '80px',
-  duration: 2000,
-  delay: 200
-});
-
-ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
-ScrollReveal().reveal('.home-content h1 , .about-img ', { origin: 'left' });
-ScrollReveal().reveal('.home-content p , .about-content ', { origin: 'right' });
 
 // ================== typed js ==================
 const typed = new Typed('.multiple-text', {
@@ -61,80 +47,273 @@ const typed = new Typed('.multiple-text', {
   loop: true,
 });
 
-
 // ================== METAMASK ===========================
 
+// This function converts a long wallet address to a formatted view for ui/ux: 0x1a9d...184
+function formatBytes(hexValue) {
+  // Convert the hexadecimal value to a string
+  const hexString = hexValue.toString(16);
+
+  // Get the first 6 bytes
+  const firstBytes = hexString.substr(0, 6);
+
+  // Get the last 4 bytes
+  const lastBytes = hexString.substr(-4);
+
+  // Create the formatted string with ellipsis
+  const formattedString = `${firstBytes}...${lastBytes}`;
+
+  return formattedString;
+}
+
+// SHA256 hashing!
+function sha256(message) {
+  // Convert the message to a Uint8Array
+  const messageBuffer = new TextEncoder().encode(message);
+
+  // Hash the message using the SubtleCrypto API
+  return crypto.subtle.digest("SHA-256", messageBuffer)
+    .then(hashBuffer => {
+      // Convert the hash buffer to a hexadecimal string
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, "0")).join("");
+      return hashHex;
+    });
+}
+
+async function encryptWithAES256(key, plaintext) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(plaintext);
+
+  // Generate a random salt
+  const salt = window.crypto.getRandomValues(new Uint8Array(16));
+
+  // Derive the key using PBKDF2
+  const importedKey = await window.crypto.subtle.importKey(
+    'raw',
+    encoder.encode(key),
+    { name: 'PBKDF2' },
+    false,
+    ['deriveKey']
+  );
+
+  const derivedKey = await window.crypto.subtle.deriveKey(
+    {
+      name: 'PBKDF2',
+      salt,
+      iterations: 100000,
+      hash: { name: 'SHA-256' },
+    },
+    importedKey,
+    { name: 'AES-CBC', length: 256 },
+    false,
+    ['encrypt']
+  );
+
+  // Generate a random initialization vector (IV)
+  const iv = window.crypto.getRandomValues(new Uint8Array(16));
+
+  // Encrypt the data
+  const encryptedData = await window.crypto.subtle.encrypt(
+    { name: 'AES-CBC', iv },
+    derivedKey,
+    data
+  );
+
+  // Encode the encrypted data as Base64
+  const encryptedDataString = btoa(String.fromCharCode.apply(null, new Uint8Array(encryptedData)));
+
+  // Return the salt, IV, and encrypted data as strings
+  return {
+    salt: Array.from(new Uint8Array(salt)),
+    iv: Array.from(new Uint8Array(iv)),
+    encryptedData: encryptedDataString,
+  };
+}
+
+async function decryptWithAES256(key, ciphertext) {
+  const decoder = new TextDecoder();
+  const salt = new Uint8Array(ciphertext.salt);
+  const iv = new Uint8Array(ciphertext.iv);
+
+  // Decode the Base64 encrypted data back to binary
+  const encryptedData = new Uint8Array(atob(ciphertext.encryptedData).split('').map(char => char.charCodeAt(0)));
+
+  // Derive the key using PBKDF2
+  const importedKey = await window.crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(key), // Create a new encoder here
+    { name: 'PBKDF2' },
+    false,
+    ['deriveKey']
+  );
+
+  const derivedKey = await window.crypto.subtle.deriveKey(
+    {
+      name: 'PBKDF2',
+      salt,
+      iterations: 100000,
+      hash: { name: 'SHA-256' },
+    },
+    importedKey,
+    { name: 'AES-CBC', length: 256 },
+    false,
+    ['decrypt']
+  );
+
+  // Decrypt the data
+  const decryptedData = await window.crypto.subtle.decrypt(
+    { name: 'AES-CBC', iv },
+    derivedKey,
+    encryptedData
+  );
+
+  // Convert the decrypted data to a string
+  const decrypted = decoder.decode(decryptedData);
+
+  return decrypted;
+}
+
 const connectButton = document.getElementById("connectButton");
-const walletID = document.getElementById("walletID");
-const reloadButton = document.getElementById("reloadButton");
-const installAlert = document.getElementById("installAlert");
-const myForm = document.getElementById("payment");
+const walletID = document.getElementById("wallet-nav");
+const myForm = document.getElementById("donation");
 
 
-connectButton.addEventListener("click", () => {
-   // Start loader while connecting
-   connectButton.classList.add("loadingButton");
+connectButton.addEventListener("click", async () => {
+  // Start loader while connecting
+  connectButton.classList.add("loadingButton");
 
-   if (typeof window.ethereum !== "undefined") {
-      ethereum
-        .request({ method: "eth_requestAccounts" })
-        .then((accounts) => {
-           const account = accounts[0]
-           connectButton.remove();
+  if (typeof ethereum === "undefined") {
+    // MetaMask not installed or `ethereum` object not found
+    window.open("https://metamask.io/download/", "_blank");
+    connectButton.classList.remove("loadingButton");
+    return;
+  }
 
-           walletID.innerHTML = `Wallet connected: ${account}`;
-            //modal opening
+  try {
+    await ethereum.request({ method: 'eth_requestAccounts' });
+    const provider = new ethers.providers.Web3Provider(ethereum);
+    const accounts = await provider.listAccounts();
+    const account = accounts[0];
 
-            const paymentSection = document.querySelector('#payment');
-            paymentSection.style.display = "block";
+    const nonceResponse = await fetch(`/nonce?address=${account}`);
+    const { message, nonce } = await nonceResponse.json();
+    console.log(message, nonce)
 
-            const myNavLinks = document.querySelectorAll('nav a');
-            const paymentLink = document.querySelector('nav a[href="#payment"]');
-            paymentLink.style.display = "inline-block";
+    const signer = provider.getSigner();
+    const signature = await signer.signMessage(message);
+    console.log(signature);
 
-            
-            paymentSection.scrollIntoView({ behavior: "smooth" });
+    const signatureValidationData = {
+      signature: signature,
+      addr: account,
+      message: message
+    };
+    console.log(signatureValidationData)
+    if (!signature || !account || !message) {
+      alert('Missing required data for signature validation.');
+    } else {
+      fetch('/validate-signature', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(signatureValidationData)
+      })
+        .then(response => response.json())
+        .then(responseData => {
+          if (responseData.success !== true) {
+            alert('Wallet Authentication Failed!');
+            return;
+          } else {
+            // Maybe private key could be stored in cookies inside of local storage for better security?
+            const sha256Value = sha256(account + "zkrelief");
+
+            sha256Value.then(hash => {
+              // Check if the localStorage variable exists
+              if (localStorage.getItem(hash)) {
+                // Retrieve the value from localStorage
+                const storedValue = localStorage.getItem(hash);
+                console.log(storedValue);
+                // DONT FORGET ME!!!!!!!
+
+              } else {
+                console.log('Nothing found in the local storage!')
+                var nextButton = document.getElementById('pk-btn');
+
+                nextButton.addEventListener('click', function () {
+                  var pkElement = document.getElementById('pk-input');
+                  var pk = pkElement.value;
+                  console.log('Private key value:', pk);
+
+                  const wallet = new ethers.Wallet(pk);
+                  if (wallet.address !== account) {
+                    alert('Wrong private key!')
+                    return;
+                  }
+
+                  var passElement = document.getElementById('pass-input');
+                  var pass = passElement.value;
+                  console.log('Pass value:', pass);
 
 
-    
-            
-           // Stop loader when connected
-           connectButton.classList.remove("loadingButton");
-           
+                  encryptWithAES256(pass, pk)
+                    .then(encryptedData => {
+                      // Store the encrypted data in local storage
+                      localStorage.setItem(hash, encryptedData);
+                      console.log(encryptedData)
+                      console.log("Data encrypted and stored in local storage");
 
-      }).catch((error) => {
-        // Handle error
-        console.log(error, error.code);
 
-        // Stop loader if error occured
-        // For example, when user cancelled request 
-        // and closed plugin
-        connectButton.classList.remove("loadingButton");
+                    })
+                    .catch(error => {
+                      alert('Encryption error! Check your js console!')
+                      console.log('Encryption Error:', error);
+                    });
 
-        // 4001 - The request was rejected by the user
-        // -32602 - The parameters were invalid
-        // -32603- Internal error
-      });
-   } else {
-      window.open("https://metamask.io/download/", "_blank");
+                });
 
-      // Show 'Reload page' warning to user
-      installAlert.classList.add("show");
-   }
-})
 
-// Reload the page on reload button click
-reloadButton.addEventListener("click", () => {
-  window.location.reload();
+
+
+              }
+            })
+              .catch(error => {
+                alert('An error occured while searching for previous provided private keys. Check the js console!')
+                console.log('Error:', error);
+              });
+          }
+
+        })
+        .catch(error => {
+          alert('An error occurred during the signature validation request. Check the js console!');
+          console.log(error);
+        });
+    }
+
+
+    connectButton.remove();
+    const paymentSection = document.querySelector('#donation');
+    paymentSection.style.display = "block";
+    paymentSection.scrollIntoView({ behavior: "smooth" });
+
+    const paymentLink = document.querySelector('nav a[href="#donation"]');
+    paymentLink.style.display = "inline-block";
+    const wallet = document.querySelector('nav a[href="#wallet"]');
+    wallet.textContent = formatBytes(account);
+    wallet.style.display = "inline-block";
+    wallet.style.color = "#33cc33";
+
+    // Stop loader when connected
+    connectButton.classList.remove("loadingButton");
+  } catch (error) {
+    // Handle error
+    console.log(error);
+
+    // Stop loader if error occurred
+    connectButton.classList.remove("loadingButton");
+  }
 });
-
-function openDialog() {
-  document.querySelector('dialog').showModal()
-}
-
-function closeDialog() {
-  document.querySelector('dialog').close()
-}
 
 
 /* ====================  MULTI-STEP FORM =====================*/
@@ -148,7 +327,8 @@ const DOMstrings = {
   stepFormPanelClass: 'multisteps-form__panel',
   stepFormPanels: document.querySelectorAll('.multisteps-form__panel'),
   stepPrevBtnClass: 'js-btn-prev',
-  stepNextBtnClass: 'js-btn-next' };
+  stepNextBtnClass: 'js-btn-next'
+};
 
 
 const removeClasses = (elemSet, className) => {
@@ -257,8 +437,7 @@ DOMstrings.stepsForm.addEventListener('click', e => {
 
   const eventTarget = e.target;
 
-  if (!(eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`) || eventTarget.classList.contains(`${DOMstrings.stepNextBtnClass}`)))
-  {
+  if (!(eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`) || eventTarget.classList.contains(`${DOMstrings.stepNextBtnClass}`))) {
     return;
   }
 
@@ -290,12 +469,3 @@ const setAnimationType = newType => {
     elem.dataset.animation = newType;
   });
 };
-
-//changing animation
-const animationSelect = document.querySelector('.pick-animation__select');
-
-animationSelect.addEventListener('change', () => {
-  const newAnimationType = animationSelect.value;
-
-  setAnimationType(newAnimationType);
-});
